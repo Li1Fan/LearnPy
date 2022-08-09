@@ -35,8 +35,11 @@ class SerialDevice(object):
             offset = time.time() - current_time
             if offset > wait_time:
                 break
-            # self.ser.in_waiting()
-            buf = self.ser.read(1000)
+            rnum = self.ser.inWaiting()  # 获取接收到的数据长度
+            if rnum == 0:
+                continue
+            # self.ser.inWaiting()
+            buf = self.ser.read(rnum)
             res += buf
         print(res.decode())
         return res.decode()
@@ -48,7 +51,7 @@ class SerialDevice(object):
             self.ser.write(cmd.encode('utf-8'))
         self.ser.write(b'\n')
 
-    def excute_cmd(self, cmd, result, timeout):
+    def send_cmd(self, cmd, result, timeout):
         self.write(cmd)
         if result in self.read(timeout):
             return True
@@ -84,7 +87,7 @@ class AutoTest(object):
                         print(text)
                         for i, j in enumerate(text):
                             cmd, result, timeout, delay_time = j.split(',')
-                            self.dev.excute_cmd(cmd, result, int(timeout))
+                            self.dev.send_cmd(cmd, result, int(timeout))
                             time.sleep(int(delay_time))
                     self.dev.connect_status = False
                 except Exception as e:
@@ -94,48 +97,15 @@ class AutoTest(object):
 
 
 if __name__ == "__main__":
-    test = AutoTest('step.txt', '/dev/ttyUSB0')
-    test.run()
-    # while True:
-    #     print(test.dev.ser.isOpen())
-    #     time.sleep(2)
-    # device = SerialDevice('/dev/ttyUSB0')
-    # # device.ser.in_waiting()
-    # buf = device.ser.read(1000)    # # device.ser.write(chr(0x03).encode())
+    # test = AutoTest('step.txt', '/dev/ttyUSB0')
+    # test.run()
+
+    device = SerialDevice('/dev/ttyUSB0')
+    # device.read(3)
+    device.write('busybox pwd')
+    print(device.ser.read(1000).decode())
+
+    # num = device.ser.inWaiting()
+    # print(num)
+    # buf = device.ser.read(num)    # # device.ser.write(chr(0x03).encode())
     # print(buf)
-    # device.write('')
-    # device.read(2)
-    # print(device.ser.isOpen())
-    # device.excute_cmd('ls\n', 'mnt', 3)
-    # time.sleep(1)
-    # device.excute_cmd('ifconfig\n', 'eth0', 3)
-    # time.sleep(1)
-    # device.excute_cmd('top', '1', 3)
-
-    # if device.ser:
-    #     device.write('ifconfig\n')
-    #     recv = device.read(2)
-    #     print(recv)
-
-    # a = input()
-    # device.ser.write(b'')
-    # cmd = 'ifconfig'
-    # device.ser.write(cmd.encode('utf-8'))
-    # device.ser.write(b'\n')
-    # # device.ser.inWaiting()
-
-    # delay_mark = time.time()
-    # res = b''
-    # while True:
-    #     offset = time.time() - delay_mark
-    #     if offset > 5:
-    #         break
-    #     buf = device.ser.read()
-    #     res += buf
-    # print(res.decode())
-    # while True:
-    #
-    #     buf = device.ser.read()
-    #     # print('com read :', buf, ',len ', len(buf))
-    #     if buf:
-    #         print(buf.decode())
