@@ -1,5 +1,3 @@
-ls,bin,1,5
-ifconfig,lo,1,0
-,#,2,0
-stop,#,1,5
-ip a,enp1s0,1,5
+,Start aging test times left,1,1
+,FACTORY-TEST-CLI#,5,1
+exit,login,5,1

@@ -41,8 +41,13 @@ class SerialDevice(object):
             # self.ser.inWaiting()
             buf = self.ser.read(rnum)
             res += buf
-        print(res.decode())
-        return res.decode()
+        print('b res:{}'.format(res))
+        try:
+            print(res.decode())
+            return res.decode()
+        except:
+            print('decode error')
+            return ''
 
     def write(self, cmd):
         if cmd == 'stop':
@@ -62,8 +67,8 @@ class SerialDevice(object):
     def discover(self):
         while True:
             if not self.connect_status:
-                self.write('\n')
-                if 'VT40' in self.read(1):
+                # self.write('\n')
+                if 'cli Initialization complete' in self.read(1):
                     print('设备连接成功')
                     self.connect_status = True
 
@@ -73,10 +78,10 @@ class AutoTest(object):
         self.file = script_file
         self.dev = SerialDevice(port, bps, timeout)
 
-    def run(self):
-        thread_discover = threading.Thread(target=self.dev.discover)
-        thread_discover.start()
-
+    # def run(self):
+    #     thread_discover = threading.Thread(target=self.dev.discover)
+    #     thread_discover.start()
+        self.dev.connect_status = True
         while True:
 
             if self.dev.connect_status:
@@ -97,13 +102,13 @@ class AutoTest(object):
 
 
 if __name__ == "__main__":
-    # test = AutoTest('step.txt', '/dev/ttyUSB0')
-    # test.run()
+    test = AutoTest('step.txt', '/dev/ttyUSB0')
+    test.run()
 
-    device = SerialDevice('/dev/ttyUSB0')
-    # device.read(3)
-    device.write('busybox pwd')
-    print(device.ser.read(1000).decode())
+    # device = SerialDevice('/dev/ttyUSB0')
+    # # device.read(3)
+    # device.write('busybox pwd')
+    # print(device.ser.read(1000).decode())
 
     # num = device.ser.inWaiting()
     # print(num)

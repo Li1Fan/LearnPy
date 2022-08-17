@@ -26,10 +26,10 @@ def fun_error():
 
 if __name__ == '__main__':
     sys.excepthook = my_excepthook
-    # fun_error()
-    try:
-        fun_error()
-    except Exception as e:
-        print(e)
-        traceback.print_exc()
-        # print(traceback.format_exc())
+    fun_error()
+    # try:
+    #     fun_error()
+    # except Exception as e:
+    #     print(e)
+    #     # traceback.print_exc()
+    #     print(traceback.format_exc())

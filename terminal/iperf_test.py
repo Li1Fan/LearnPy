@@ -12,7 +12,7 @@ global computer_result
 def device_cmd(cmd, ip=None):
     print('设备端执行命令成功')
     if cmd == 's':
-        cmd = 'adb shell iperf -s -u -i 1 -p 40000'
+        cmd = 'adb shell iperf -s -u -i 1 -p 40000 -P 1'
     elif cmd == 'c':
         cmd = 'adb shell iperf -c {} -u -p 40000 -i 1 -b 100M -t 10 -l 1400 -w 16777216 -z'.format(ip)
 
@@ -25,7 +25,7 @@ def device_cmd(cmd, ip=None):
 def computer_cmd(cmd, ip=None):
     print('电脑端执行命令成功')
     if cmd == 's':
-        cmd = 'iperf -s -u -i 1 -p 40000'
+        cmd = 'iperf -s -u -i 1 -p 40000 -P 1'
     elif cmd == 'c':
         cmd = 'iperf -c {} -u -p 40000 -i 1 -b 100M -t 10 -l 1400 -w 16777216 -z'.format(ip)
 
