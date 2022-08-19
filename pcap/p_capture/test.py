@@ -68,9 +68,11 @@ filename = '/home/frz/fileTest/' + str(filename) + '.zip'
 f = open(filename, "wb")
 received_size = 0
 file_size = 57555426
+print(1)
 
 while received_size < file_size:
     if not data_queue.empty():
+        print(1)
         data = data_queue.get()
         data_len = len(data)
         received_size += data_len

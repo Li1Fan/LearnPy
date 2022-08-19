@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
+import sys
+
+sys.path.append('/home/frz/PycharmProjects/Project/LearnPy')
 
 from scapy.all import conf
 
@@ -18,6 +21,7 @@ def create_packet(data: bytes):
     pmessage.session = 0
     pmessage.payload = data
     packet = pmessage.raw()
+    return packet
 
 
 # filename = '/home/frz/SSC339-1.1.9-2022-06-14.tar.gz'
@@ -28,13 +32,19 @@ with open(filename, "rb") as f:
     for line in f:
         pass
         a = len(line)
-        if a // 1480 == 1:
-            raw_socket.send(a[:1480])
-            raw_socket.send(a[1480:])
+        if a // 1200 == 1:
+            raw_socket.send(create_packet(line[:1200]))
+            raw_socket.send(create_packet(line[1200:]))
             continue
-        if a // 1480 == 2:
-            raw_socket.send(a[:1480])
-            raw_socket.send(a[1480:])
-            raw_socket.send(a[2960:])
+        if a // 1200 == 2:
+            raw_socket.send(create_packet(line[:1200]))
+            raw_socket.send(create_packet(line[1200:2400]))
+            raw_socket.send(create_packet(line[2400:]))
+            continue
+        if a // 1200 == 3:
+            raw_socket.send(create_packet(line[:1200]))
+            raw_socket.send(create_packet(line[1200:2400]))
+            raw_socket.send(create_packet(line[2400:3600]))
+            raw_socket.send(create_packet(line[3600:]))
             continue
         raw_socket.send(line)  # 发送数据

@@ -40,12 +40,15 @@ with open(filename, "rb") as f:
     for line in f:
         pass
         a = len(line)
-        if a // 1480 == 1:
+        if a // 1300 == 1:
             # print(a)
-            pass
-        if a // 1480 == 2:
+            continue
+        if a // 1300 == 2:
             # print(a)
-            pass
+            continue
+        if a // 1300 == 0:
+            continue
+        print(a // 1300)
         # client.send(line)  # 发送数据
 a = b'1' + b'12222222222'
 print(a)
