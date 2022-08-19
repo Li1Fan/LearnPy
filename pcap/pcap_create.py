@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import copy
 
+import dpkt.ethernet
 from scapy.layers.inet import IP
 from scapy.sendrecv import sendp
 from scapy.utils import rdpcap
@@ -9,7 +10,7 @@ src_pcap = "/home/frz/PycharmProjects/Project/qt_tools/Attack/data/sip/invite.pc
 # Read a pcap or pcapng file and return a packet list
 pcaps = rdpcap(src_pcap)
 """转义序列"""
-print(pcaps[0])
+print(pcaps[0],type(pcaps[0]))
 data = "\xf2\xb6\xe9\x2e\x8e\x9d\x00\x0e\x0c\x62\x8c\x8e\x08\x00\x45\x00" \
        "\x05\x3a\x00\x00\x40\x00\x40\x11\xf7\xe7\xc0\xa8\xde\x66\xc0\xa8" \
        "\xde\x13\x13\xc4\x13\xc9\x05\x26\xed\x25\x49\x4e\x56\x49\x54\x45" \
@@ -103,3 +104,4 @@ print(pcap[IP].src, type(pcap[IP].src))
 pcap[IP].src = '192.0.2.1'
 pcap[IP].dst = '11.22.33.44'
 # sendp(pcap, iface='enp1s0')
+

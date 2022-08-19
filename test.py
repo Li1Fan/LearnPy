@@ -12,6 +12,7 @@
 # # t.setDaemon(True)
 # t.start()
 # print('退出')
+import os
 import re
 
 import pyperclip
@@ -25,3 +26,27 @@ print(float(b[-1].split('%')[0]))
 
 value = pyperclip.paste()
 print(value, type(value))
+
+a = '234345321'
+b = b'55143235'
+print(a, type(a))
+print(b, type(b))
+print(b.decode())
+
+filename = '/home/frz/fileTest/0.tar.gz'
+size = os.stat(filename).st_size
+print(size)
+with open(filename, "rb") as f:
+    for line in f:
+        pass
+        a = len(line)
+        if a // 1480 == 1:
+            # print(a)
+            pass
+        if a // 1480 == 2:
+            # print(a)
+            pass
+        # client.send(line)  # 发送数据
+a = b'1' + b'12222222222'
+print(a)
+print(a[0:3])
