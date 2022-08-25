@@ -1,0 +1,120 @@
+$def with (name)
+<html>
+<head>
+    <meta charset='URF-8'>
+    <title>WebLearn</title>
+    <style>
+        body{color:white}
+        p{color:yellow};
+<!--        body{background-size: 100% auto;opacity:1;}-->
+
+
+    </style>
+</head>
+<body background="/static/res/back.jpg" style="background-size: 100% auto;opacity:1;">
+<!--<body style="background-color:green">-->
+<br>
+$# 注释
+<!--仅仅赋值语句有空格，其余没有-->
+$ value = name
+<!--循环、选择、顺式语句-->
+$for i in range(10):
+    $i $value.upper()
+$if name:
+    <h1>I just wanted to say <em>hello</em> to $name.
+    </h1>
+$else:
+    <h1><em>Hello</em>, world!</h1>
+<hr>
+$for i in range(100):
+    U like $i
+<br><br>
+$for i in range(10): I like $i
+
+<!--while循环有问题-->
+$ n = 1
+$while n > 10:
+    hello while loop
+    $n += 1
+<br><br>
+$if 10 > 9:
+    Stop! In the name of love.
+$else:
+    Keep on, you can do it.
+<br><br>
+<table border="1">
+    <tr>
+        <th>顺序</th>
+        <th>内容</th>
+    </tr>
+$for c in ["a", "b", "c", "d"]:
+    <tr class="$loop.parity">
+        <td>$loop.index</td>
+        <td>$c</td>
+    </tr>
+</table>
+
+<br>
+<table border="1">
+  			<tr>
+                <th>表格标题</th>
+                <th>表格标题</th>
+            </tr>
+            <tr>
+                <td>表格数据</td>
+                <td>表格数据</td>
+ 			</tr>
+         </table>
+<br>
+<!--函数-->
+$def fun_test(var='123'):
+    print $var
+$fun_test()
+<br>
+$def tr(values):
+    <tr>
+    $for v in values:
+        <td>$v</td>
+    </tr>
+
+$def table(rows):
+    <table border="3">
+    $for row in rows:
+        $:row
+    </table>
+
+$ data = [['a', 'b', 'c'], [1, 2, 3], [2, 4, 6], [3, 6, 9] ]
+$:table([tr(d) for d in data])
+<br>
+<!--代码块-->
+$code:
+    def loop(var):
+        text = ''
+        while var < 10:
+            text += 'num'
+            var += 1
+        return text
+$ a = 1
+$loop(a)
+<p>
+    <br>
+    早上遇见一卷发小女孩，我问：“小妹妹，你的头发是在哪里烫的？”小女孩说：“妈妈说是在她肚子里，她喝开水烫的！”
+    <br>
+    <br>
+    一青年经过十个小时的路程终于找到了大师。大师我才27岁就拥有了自己的第一辆车我算不算是成功人士呢？只见大师指了指旁边的悍马和一辆自行车。哦，大师您是说我要像自行车一样低调不要像悍马那样高调吗？。高调你麻辣个逼啊，赶紧把你的自行车放的离我的悍马远一点，砸到我的车你赔得起吗。
+    <br>
+    <br>
+    去券商开户，券商问：“多大了？”“38”“结婚了么”“结了”“怕老婆不”“怕”“住几楼呀”“21楼”“那您别开了，我们现在只给2楼以下的开！”
+    <br>
+    <br>
+    <a href='https://www.baidu.com' target='_blank'>百度一下，你就知道</a><!--文字链接,打开新标签页-->
+</p>
+<!--<img loading="lazy" src="/static/res/back.jpg" alt="替换文本">-->
+<form method="post" action="add">
+    <p>
+        <input type="text" name="title" />
+        <input type="submit" value="Add" />
+    </p>
+</form>
+</body>
+</html>
