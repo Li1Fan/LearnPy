@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        body{color:white;font-size:30px;}
+        input{width:300px;height:30px}
+        select{width:300px;height:30px;}
+        option{font-size:30px;}
+        .submit{width:60px;height:30px}
+        .reset{width:60px;height:30px}
+        button{width:60px;height:30px}
+    </style>
+    <script>
+        function btnAction()
+        {window.location.href="http://0.0.0.0:8989"}
+    </script>
+</head>
+<body background="/static/res/back.jpg" style="background-size: 100% auto;opacity:1">
+<!--<form method="post" action="form">-->
+<!--    <p>-->
+<!--        <input type="text" name="title"/>-->
+<!--        <input type="submit" value="submit"/>-->
+<!--    </p>-->
+<!--</form>-->
+<form method="post" action="form">
+    账号：<input type="text" name="email" size=auto maxlength=auto>
+    <br>
+    密码：<input type="password" name="passwd">
+    <br>
+    <!--    <input type="checkbox" checked="checked">-->
+    <!--    <input type="radio" checked="checked">-->
+    口令：<select name="fruit">
+        <option>苹果</option>
+        <option selected="selected">香蕉</option>
+        <option>樱桃</option>
+        <option>西瓜</option>
+        <option>芒果</option>
+    </select>
+    <br>
+    <input class="submit" type="submit" value="确认">
+    <input class="reset" type="reset">
+<!--    <input type="hidden">-->
+</form>
+<br>
+<button type="submit" id="btn_submit" onclick="btnAction()" >
+    返回
+</button>
+</body>
+</html>

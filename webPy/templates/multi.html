@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九九乘法表</title>
+    <style>
+        body{color:white;font-size:25px;}
+        button{font-size:25px;background-color:white;}
+    </style>
+    <script>
+        function btnAction()
+        {window.location.href="http://0.0.0.0:8989"}
+<!--        {window.alert('返回失败');}-->
+    </script>
+
+</head>
+<body background="/static/res/back.jpg" style="background-size: 100% auto;opacity:1;text-align:center">
+$def tr():
+    $for i in range(1,10):
+        <tr>
+        $for j in range(1,i+1):
+            $ result = i*j
+            <td>$j*$i=$result</td>
+        </tr>
+$def tr_():
+    $for i in range(1,10):
+        <tr>
+        $for j in range(i,10):
+            $ result = i*j
+            <td>$i*$j=$result</td>
+        </tr>
+
+<table border="3">
+$:tr()
+</table>
+<br>
+<table border="3">
+$:tr_()
+</table>
+<button type="submit" id="btn_submit" onclick="btnAction()">
+    返回
+</button>
+</body>
+</html>

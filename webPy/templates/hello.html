@@ -6,12 +6,17 @@ $def with (name)
     <style>
         body{color:white}
         p{color:yellow};
-<!--        body{background-size: 100% auto;opacity:1;}-->
+        table{margin:0 auto};
 
 
     </style>
+    <script>
+        function btnAction()
+        {window.location.href="http://0.0.0.0:8989"}
+<!--        {window.alert('返回失败');}-->
+    </script>
 </head>
-<body background="/static/res/back.jpg" style="background-size: 100% auto;opacity:1;">
+<body background="/static/res/back.jpg" style="background-size: 100% auto;opacity:1;text-align:center">
 <!--<body style="background-color:green">-->
 <br>
 $# 注释
@@ -19,30 +24,30 @@ $# 注释
 $ value = name
 <!--循环、选择、顺式语句-->
 $for i in range(10):
-    $i $value.upper()
+    $i + $value.upper()
 $if name:
     <h1>I just wanted to say <em>hello</em> to $name.
     </h1>
 $else:
     <h1><em>Hello</em>, world!</h1>
 <hr>
-$for i in range(100):
-    U like $i
+$for i in range(10):
+    loop $i
 <br><br>
-$for i in range(10): I like $i
 
-<!--while循环有问题-->
+<!--while循环有问题，可以借助代码块实现-->
 $ n = 1
 $while n > 10:
     hello while loop
     $n += 1
-<br><br>
+
 $if 10 > 9:
     Stop! In the name of love.
 $else:
     Keep on, you can do it.
 <br><br>
-<table border="1">
+<!--利用循环实现表格-->
+<table border="1" style="margin:0 auto;">
     <tr>
         <th>顺序</th>
         <th>内容</th>
@@ -54,23 +59,25 @@ $for c in ["a", "b", "c", "d"]:
     </tr>
 </table>
 
-<br>
-<table border="1">
-  			<tr>
-                <th>表格标题</th>
-                <th>表格标题</th>
-            </tr>
-            <tr>
-                <td>表格数据</td>
-                <td>表格数据</td>
- 			</tr>
-         </table>
-<br>
+<!--<br>-->
+<!--<table border="1">-->
+<!--  			<tr>-->
+<!--                <th>表格标题</th>-->
+<!--                <th>表格标题</th>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>表格数据</td>-->
+<!--                <td>表格数据</td>-->
+<!-- 			</tr>-->
+<!--         </table>-->
+<!--<br>-->
 <!--函数-->
+<br>
 $def fun_test(var='123'):
-    print $var
+    fun_print $var
 $fun_test()
 <br>
+<!--利用函数实现表格-->
 $def tr(values):
     <tr>
     $for v in values:
@@ -78,7 +85,7 @@ $def tr(values):
     </tr>
 
 $def table(rows):
-    <table border="3">
+    <table border="3" style="margin:0 auto;">
     $for row in rows:
         $:row
     </table>
@@ -91,7 +98,7 @@ $code:
     def loop(var):
         text = ''
         while var < 10:
-            text += 'num'
+            text += 'while_loop '
             var += 1
         return text
 $ a = 1
@@ -107,14 +114,21 @@ $loop(a)
     去券商开户，券商问：“多大了？”“38”“结婚了么”“结了”“怕老婆不”“怕”“住几楼呀”“21楼”“那您别开了，我们现在只给2楼以下的开！”
     <br>
     <br>
-    <a href='https://www.baidu.com' target='_blank'>百度一下，你就知道</a><!--文字链接,打开新标签页-->
+    <a href='https://www.baidu.com' target='_blank' style="color:red;">百度一下，你就知道</a><!--文字链接,打开新标签页-->
 </p>
 <!--<img loading="lazy" src="/static/res/back.jpg" alt="替换文本">-->
+<!--表单提交-->
 <form method="post" action="add">
     <p>
         <input type="text" name="title" />
         <input type="submit" value="Add" />
     </p>
 </form>
+
+<button type="submit" id="btn_submit" onclick="btnAction()">
+    返回
+</button>
 </body>
 </html>
+<!--默认情况下，Templetor使用web.websafe过滤器进行HTML编码-->
+<!--使用$:关闭-->
