@@ -5,7 +5,7 @@ import sys
 import threading
 import time
 
-sys.path.append('/home/frz/PycharmProjects/Project/LearnPy')
+sys.path.append('D:\PycharmProjects\LearnPy')
 
 from scapy.all import conf
 
@@ -13,7 +13,7 @@ from scapy.all import conf
 # raw_socket = conf.L2socket(iface=str('enp1s0'), filter='not ip')
 from pcap.p_capture.send_pacp.product_message import PMessage
 
-raw_socket = conf.L2socket(iface=str('enp1s0'))
+raw_socket = conf.L2socket(iface=str('ASIX AX88179A USB 3.2 Gen1 to Gigabit Ethernet Adapter #3'))
 
 # raw_socket = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, socket.htons(0x9700))
 # VlanDevice.raw_socket.settimeout(1)
@@ -44,31 +44,32 @@ def recv_():
         if packet is None:
             continue
         # data_queue.put(packet)
+        data_queue.put(packet)
 
-        try:
-            pmessage = PMessage.from_bytes(bytes(packet))
-        except:
-            print('error')
-            pmessage = None
-            continue
-        if pmessage is None:
-            # print('none')
-            continue
-        print(pmessage.protocol)
-        if pmessage.protocol == 0x9700:
-            # print(pmessage.payload, type(pmessage.payload))
-            data_queue.put(packet)
+        # try:
+        #     pmessage = PMessage.from_bytes(bytes(packet))
+        # except:
+        #     print('error')
+        #     pmessage = None
+        #     continue
+        # if pmessage is None:
+        #     # print('none')
+        #     continue
+        # # print(pmessage.protocol)
+        # if pmessage.protocol == 0x9700:
+        #     # print(pmessage.payload, type(pmessage.payload))
+        #     data_queue.put(packet)
 
 
 t_recv = threading.Thread(target=recv_)
 t_recv.start()
 
 filename = 1
-filename = '/home/frz/fileTest/' + str(filename) + '.zip'
+filename = 'D:/PycharmProjects/LearnPy/' + str(filename) + 'tar.gz'
 f = open(filename, "wb")
 received_size = 0
-file_size = 57555426
-print(1)
+file_size = 10240000
+# print(1)
 
 while received_size < file_size:
     if not data_queue.empty():
@@ -77,7 +78,8 @@ while received_size < file_size:
         data_len = len(data)
         received_size += data_len
         print("已接收：", int(received_size / file_size * 100), "%")
-        f.write(data)
+        f.write(bytes(data))
+        # print(data.payload, type(data.payload))
     else:
         continue
 f.close()
