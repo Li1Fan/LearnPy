@@ -1,8 +1,16 @@
 import os
+import shutil
+
 from PIL import Image
 
 
-def splitimage(src, rownum, colnum, dstpath):
+def split_image(src, rownum, colnum, dstpath):
+    if not os.path.exists(dstpath):
+        os.mkdir(dstpath)
+    else:
+        shutil.rmtree(dstpath)
+        os.mkdir(dstpath)
+
     img = Image.open(src)
     w, h = img.size
     if rownum <= h and colnum <= w:
@@ -15,8 +23,10 @@ def splitimage(src, rownum, colnum, dstpath):
         fn = s[1].split('.')
         basename = fn[0]
         ext = fn[-1]
-
-        num = 0
+        if ext == 'jpg':
+            ext = 'jpeg'
+        print(ext)
+        num = 10
         rowheight = h // rownum
         colwidth = w // colnum
         for r in range(rownum):
@@ -25,22 +35,23 @@ def splitimage(src, rownum, colnum, dstpath):
                 img.crop(box).save(os.path.join(dstpath, basename + '_' + str(num) + '.' + ext), ext)
                 num = num + 1
 
-        print('图片切割完毕，共生成 %s 张小图片。' % num)
+        print('图片切割完毕，共生成 %s 张小图片。' % str(num - 10))
     else:
         print('不合法的行列切割参数！')
 
 
-src = input('请输入图片文件路径：')
-if os.path.isfile(src):
-    dstpath = input('请输入图片输出目录（不输入路径则表示使用源图片所在目录）：')
-    if (dstpath == '') or os.path.exists(dstpath):
-        row = int(input('请输入切割行数：'))
-        col = int(input('请输入切割列数：'))
-        if row > 0 and col > 0:
-            splitimage(src, row, col, dstpath)
+if __name__ == "__main__":
+    src = input('请输入图片文件路径：')
+    if os.path.isfile(src):
+        dstpath = input('请输入图片输出目录（不输入路径则表示使用源图片所在目录）：')
+        if (dstpath == '') or os.path.exists(dstpath):
+            row = int(input('请输入切割行数：'))
+            col = int(input('请输入切割列数：'))
+            if row > 0 and col > 0:
+                split_image(src, row, col, dstpath)
+            else:
+                print('无效的行列切割参数！')
         else:
-            print('无效的行列切割参数！')
+            print('图片输出目录 %s 不存在！' % dstpath)
     else:
-        print('图片输出目录 %s 不存在！' % dstpath)
-else:
-    print('图片文件 %s 不存在！' % src)
+        print('图片文件 %s 不存在！' % src)

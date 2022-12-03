@@ -10,7 +10,7 @@ from future.backports.datetime import timedelta
 MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 # current_time = datetime.now()
-current_time = datetime(2022, 11, 30)
+current_time = datetime(2022, 12, 1)
 
 YEAR = current_time.year
 MONTH = current_time.month
@@ -18,6 +18,8 @@ DAY = current_time.day
 
 
 def str2time(str_):
+    """将字符串转化为datetime，
+    主要有三种类型：11-0108：50，星期五08：50，昨天08：50"""
     str_, ret = match_time(str_)
     if not str_:
         return None
@@ -67,6 +69,8 @@ def str2time(str_):
 
 
 def match_time(str_):
+    """正则匹配字符串，
+    三种类型：11-0108：50，星期五08：50，昨天08：50"""
     pattern_time = re.compile(r'^\d{2}-\d{4}:\d{2}$')
     pattern_week = re.compile(r'^星期[一二三四五六七日]\d{2}:\d{2}$')
     pattern_day = re.compile(r'^[昨今]天\d{2}:\d{2}$')
@@ -81,6 +85,7 @@ def match_time(str_):
 
 
 def week_of_the_month(sometime):
+    """计算传入的日期属于该月的第几周"""
     year, month, day = sometime.year, sometime.month, sometime.day
     someday = datetime(year, month, 1)
 
@@ -102,7 +107,7 @@ def parse_data(data_list: list):
     # 计算重复
     lst_repeat = list()
     for n, _date in enumerate(data_list):
-        _t = str2time(_date)
+        _t = str2time(_date.replace(' ', ''))
         if _t and _t.day not in lst_repeat:
             if _t > datetime(_t.year, _t.month, _t.day, 6, 0):
                 _lst.append(_t)
@@ -116,14 +121,16 @@ def get_z_x(sometime):
 
 
 def parse_ocr_result(str_):
-    return str_.strip().replace(' ', '').replace(': ', ':').split('\n')
+    """切割数据"""
+    return str_.strip().replace(' ', ''). \
+        replace(': ', ':').replace('：', ':') \
+        .replace('星期-', '星期一').split('\n')
 
 
-if __name__ == "__main__":
-    with open('data.txt', 'r', encoding='utf-8') as f:
-        data = f.read()
-    data = parse_ocr_result(data)
-    # print(data)
+def create_table(str_data):
+    """创建表格"""
+    data = parse_ocr_result(str_data)
+    print(data)
     a = parse_data(data)
     print(a)
     print(f'打卡次数 {len(a)}')
@@ -152,3 +159,10 @@ if __name__ == "__main__":
         pass
     # 保存
     workbook.save("new.xls")
+
+
+if __name__ == "__main__":
+    # 从文件中读取数据
+    with open('data.txt', 'r', encoding='utf-8') as f:
+        data = f.read()
+    create_table(data)
