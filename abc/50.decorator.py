@@ -1,5 +1,6 @@
 import time
 
+
 # 装饰器
 def decorate(func):
     def wrap(*args, **kwargs):
@@ -18,6 +19,7 @@ def wait_s(t):
 # 原理
 a = decorate(wait_s)
 a(1)
+print()
 
 
 @decorate
@@ -28,11 +30,12 @@ def wait_s_new(t):
 
 # 通过装饰器实现重复调用
 wait_s_new(1)
+print()
 
 
 # 装饰器带参数
 def decorate_with_argue(arg):
-    def decorate(func):
+    def decorate1(func):
         def wrap(*args, **kwargs):
             print(f'start:{time.time()}')
             func(*args, **kwargs)
@@ -41,12 +44,19 @@ def decorate_with_argue(arg):
 
         return wrap
 
-    return decorate
+    return decorate1
 
 
 @decorate_with_argue('argue')
-def fun():
-    print(1)
+def fun(t):
+    time.sleep(t)
+    print('hello world')
 
 
-fun()
+fun(1)
+print()
+
+# 原理
+a = decorate_with_argue('argue')
+b = a(wait_s)
+b(1)
