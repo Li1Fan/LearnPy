@@ -16,7 +16,7 @@ def wait_s(t):
     print('hello world')
 
 
-# 原理
+# 原理，返回一个函数对象
 a = decorate(wait_s)
 a(1)
 print()
@@ -39,15 +39,15 @@ def decorate_with_argue(arg):
         def wrap(*args, **kwargs):
             print(f'start:{time.time()}')
             func(*args, **kwargs)
-            print(f'stop:{time.time()}')
             print(arg)
+            print(f'stop:{time.time()}')
 
         return wrap
 
     return decorate1
 
 
-@decorate_with_argue('argue')
+@decorate_with_argue('argument')
 def fun(t):
     time.sleep(t)
     print('hello world')
