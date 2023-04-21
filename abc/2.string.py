@@ -13,9 +13,9 @@ print(text.replace('，', '').replace('。', ''))
 b = re.compile(r'(\s?)').split(a)
 print(b)
 c = re.compile(r'(.*?)').findall(a)
-print(c)
+print(f'c: {c}')
 
-# 文本组合
+# 文本组合，c为列表
 print(''.join(c))
 
 
@@ -38,6 +38,7 @@ p = re.compile(r'[^\d]+')
 print(p.split(x))
 print(p.split(y))
 
+# 解决上述问题
 print([i for i in p.split(x) if i])  # 列表生成式
 print(list(filter(lambda a: a, p.split(x))))  # filter
 print(list(filter(None, p.split(x))))

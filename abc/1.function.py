@@ -1,6 +1,3 @@
-import os
-
-
 # 函数，可变参数(位置参数、关键字参数)
 def func(*args, **kwargs):
     print(args, type(args))
@@ -30,7 +27,7 @@ def func_callback1(func1, arg):
 
 
 def f1(argument):
-    print('callbackL: ' + argument)
+    print('callback: ' + argument)
 
 
 def func_callback2(func1, *args):
@@ -38,7 +35,7 @@ def func_callback2(func1, *args):
 
 
 def f2(*args):
-    print('callbackL: ' + str(args))
+    print('callback: ' + str(args))
 
 
 func_callback1(f1, '123')
@@ -65,3 +62,20 @@ def print_result(result):
 
 
 apply_async(add, (2, 3), callback=print_result)
+
+
+# 特殊
+# / 之前只能使用位置参数传参，不可以使用关键字传参
+# * 之后只能使用关键字传参
+def fun_special(arg1, arg2, /):
+    print(arg1, arg2)
+
+
+def fun_special2(arg1, *, arg2):
+    print(arg1, arg2)
+
+
+fun_special(1, 2)
+# fun_special(arg1=1, 2)  #报SyntaxError
+fun_special2(arg1=1, arg2=2)
+# fun_special2(arg1=1, 2)  # 报SyntaxError
