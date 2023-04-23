@@ -1,19 +1,36 @@
-n = eval(input())  # 获取用户输入
-f = open("三国演义.txt", "r", encoding="utf-8")  # 打开文件
-file_content = f.read()
-f.close()
+from selenium import webdriver
 
-dict_str = {}
-for i in file_content.strip().replace('\n', ''):
-    if i in dict_str:
-        dict_str[i] += 1
+
+def get_contact(name):
+    # 创建浏览器对象
+    driver = webdriver.Chrome()
+
+    # 打开网页
+    driver.get("file:///C:/Users/10262/Desktop/a.html")
+
+    # 找到姓名为张三的行
+    rows = driver.find_elements_by_xpath("//tbody/tr[td[text()='{}']]".format(name))
+    rows = driver.find_elements_by_xpath("//tr[td[text()='李四']]")
+    # rows = driver.find_element_by_css_selector("tbody tr td:contains('张三')")
+    print(rows)
+    # 如果找到了对应的行，则获取联系方式
+    if len(rows) > 0:
+        contact = rows[0].find_element_by_xpath("./td[2]")
+        print(contact)
+        contact = contact.text
     else:
-        dict_str[i] = 1
+        contact = None
 
-list_keys = list(dict_str.keys())
-list_value = list(dict_str.values())
-list_value.sort(reverse=True)
-for i in range(n):
-    value = list_value[i]
-    key = list_keys[list(dict_str.values()).index(value)]
-    print("{}:{}".format(key, value))
+    # 关闭浏览器
+    driver.quit()
+
+    # 返回联系方式
+    return contact
+
+
+if __name__ == '__main__':
+    contact = get_contact("李四")
+    if contact:
+        print(contact)
+    else:
+        print("未找到对应的联系方式")

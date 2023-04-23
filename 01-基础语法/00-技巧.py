@@ -1,5 +1,5 @@
-from functools import reduce
 from collections import OrderedDict
+from functools import reduce
 
 # 传值
 lst = [1, 22, 2, 1]
@@ -72,9 +72,17 @@ print(f'd:{d} {d.get("a")} {d.get("c", 999)} {d.get("c")}')
 # 列表生成式
 a = [i ** 2 for i in range(10) if i > 3]
 print(a)
+
 # 字典生成式
 b = {i + '1': j + '1' for (i, j) in {'key': 'value'}.items() if i == 'key'}
 print(b)
+
+# 组合两个列表
+lst1 = [1, 2, 3]
+lst2 = [4, 5, 6]
+lst = [x for x in lst1 + lst2]
+print(lst)
+print(lst1 + lst2)
 
 # 异常捕获
 try:
@@ -103,6 +111,41 @@ print(b'hello')
 print(u'你好，世界')
 # format格式化输出
 print(f'a:{a}')
+
+# 上下文管理器：使用上下文管理器可以方便地管理资源，例如打开和关闭文件、连接和关闭数据库等。
+# 打开文件并自动关闭
+# with open('file.txt', 'r') as f:
+#     content = f.read()
+#     print(content)
+
+# 连接数据库并自动关闭
+# with connect('database.db') as db:
+#     cursor = db.cursor()
+#     cursor.execute('SELECT * FROM users')
+#     results = cursor.fetchall()
+#     print(results)
+
+# zip函数：使用 zip 函数可以快速将两个或多个列表合并为一个元组列表。
+# 合并两个列表
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+zipped = list(zip(list1, list2))
+print(zipped)
+# Output: [(1, 'a'), (2, 'b'), (3, 'c')]
+for i, j in zip(list1, list2):
+    print(i, j)
+
+# 偏函数：偏函数是一种特殊的函数，它可以固定一部分函数参数的值，然后返回一个新的函数
+from functools import partial
+
+
+def my_func(a, b, c):
+    return a + b + c
+
+
+# 固定第一个参数为 1
+new_func = partial(my_func, 1)
+print(new_func(2, 3))  # 输出 6
 
 # TODO 内置函数
 """
