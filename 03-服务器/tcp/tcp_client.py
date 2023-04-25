@@ -48,3 +48,13 @@ if __name__ == '__main__':
     for i in range(1):
         thread_client = threading.Thread(target=client_connect, )
         thread_client.start()
+
+"""
+在上面的示例中，我们使用`socket.setsockopt()`方法设置了`SO_LINGER`选项，
+将其值设置为一个长度为8的字节串`b'\x01\x00\x00\x00\x00\x00\x00\x00'`，表示在关闭socket时立即发送RST包，不进行挥手操作。
+然后我们关闭了客户端socket。
+"""
+# client.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, b'\x01\x00\x00\x00\x00\x00\x00\x00')
+#
+# # 关闭客户端socket
+# client.close()
