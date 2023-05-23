@@ -2,9 +2,12 @@ import multiprocessing
 import time
 
 
-def print_hello():
+def print_hello(var):
     time.sleep(2)
     print("Hello from process", multiprocessing.current_process().name)
+    print(multiprocessing.parent_process())
+    print(multiprocessing.parent_process().pid)
+    var[1] = 1
 
 
 def print_world():
@@ -18,10 +21,14 @@ def print_world():
 在 Linux 和 macOS 等其他操作系统上，这个条件语句是可选的。
 """
 if __name__ == '__main__':
-    process1 = multiprocessing.Process(target=print_hello)
+    var = dict()
+
+    process1 = multiprocessing.Process(target=print_hello,args=(var,))
     process2 = multiprocessing.Process(target=print_world)
+    # process2.daemon = True
     process1.start()
     process2.start()
     # process1.join()
     # process2.join()
     print('Done!')
+    print(var)  # 变量不共享
