@@ -8,7 +8,7 @@ from chinese_calendar import is_workday
 MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 # current_time = datetime.now()
-current_time = datetime(2022, 12, 1)
+current_time = datetime(2023, 4, 27)
 
 YEAR = current_time.year
 MONTH = current_time.month
@@ -148,7 +148,7 @@ def create_table(str_data):
         for i, date in enumerate(a):
             x, y = get_z_x(date)
             if is_workday(date) and \
-                    date > datetime(date.year, date.month, date.day, 8, 52):
+                    date > datetime(date.year, date.month, date.day, 10, 00):
                 worksheet.write(x, y - 1, str(date), style=red_style)
             else:
                 worksheet.write(x, y - 1, str(date))
