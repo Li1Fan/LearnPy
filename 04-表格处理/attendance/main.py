@@ -32,12 +32,13 @@ def get_ocr_data(dir):
 
 
 if __name__ == "__main__":
-    pic_path = r'C:\Users\10262\Desktop\contact\attend\da.jpg'
-    cut_pic_path = r'C:\Users\10262\Desktop\contact\attend\cutPic'
+    pic_path = r'C:\Users\10262\Desktop\4月.jpg'
+    cut_pic_path = r'C:\Users\10262\Desktop\contact\attend\cutPic\4'
 
     split_image(pic_path, 10, 1, cut_pic_path)
     rename_pic(cut_pic_path)
     data = get_ocr_data(cut_pic_path)
     print(data)
+    with open('data.txt', 'w', encoding='utf-8') as f:
+        f.write(data)
     create_table(data)
-#
