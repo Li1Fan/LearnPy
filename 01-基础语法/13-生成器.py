@@ -2,7 +2,7 @@
 # 生成生成器
 numbers = [1, 2, 3, 4, 5, 6]
 evens = (x for x in numbers if x % 2 == 0)
-print(evens)  # Output: <generator object
+print(evens)  # Output: <generator object <genexpr> at 0x0000020D7F6F4C80>
 print(tuple(evens))  # 只能被迭代一次！！！
 for even in evens:
     print(even)

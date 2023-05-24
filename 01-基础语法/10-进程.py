@@ -1,3 +1,6 @@
+"""
+参阅 https://zhuanlan.zhihu.com/p/438107406
+"""
 import multiprocessing
 import time
 
@@ -23,7 +26,7 @@ def print_world():
 if __name__ == '__main__':
     var = dict()
 
-    process1 = multiprocessing.Process(target=print_hello,args=(var,))
+    process1 = multiprocessing.Process(target=print_hello, args=(var,))
     process2 = multiprocessing.Process(target=print_world)
     # process2.daemon = True
     process1.start()
