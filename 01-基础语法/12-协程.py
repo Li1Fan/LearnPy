@@ -31,6 +31,7 @@ import time
 async def my_coroutine(t, name):
     await asyncio.sleep(t)
     print("协程 {} 执行完毕".format(name))
+    return name
 
 
 async def main():
@@ -40,7 +41,8 @@ async def main():
     # await asyncio.gather(coroutine1, coroutine2, coroutine3)  # 并发执行协程对象
 
     tasks = [coroutine1, coroutine2, coroutine3]
-    await asyncio.wait(tasks)  # 并发执行协程对象
+    result = await asyncio.wait(tasks)  # 并发执行协程对象
+    print(result)  # 可以有返回值
 
 
 if __name__ == "__main__":
