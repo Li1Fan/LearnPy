@@ -28,3 +28,15 @@ print(fake.name(), fake.email(), fake.country(), fake.profile())
 # engine = pyttsx3.init()
 # engine.say("厉害了呀")
 # engine.runAndWait()
+
+
+# from colorama import init, Fore, Back, Style
+#
+# # 初始化colorama库
+# init()
+#
+# # 打印红色文本
+# print(Fore.RED + 'Hello, world!' + Fore.RESET)
+#
+# # 打印绿色背景的白色文本
+# print(Back.GREEN + Fore.WHITE + 'Hello, world!' + Style.RESET_ALL)

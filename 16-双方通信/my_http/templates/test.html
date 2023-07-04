@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        textarea {
+            resize: none; /* 禁止用户调整textarea的大小 */
+            overflow: hidden; /* 隐藏溢出的内容 */
+        }
+    </style>
+</head>
+<body>
+    <textarea id="myTextarea" cols="80" oninput="autoResize()"></textarea>
+
+    <script>
+        function autoResize() {
+            const textarea = document.getElementById("myTextarea");
+            textarea.style.height = "auto"; // 先将高度设置为auto，以便获取内容的完整高度
+            textarea.style.height = textarea.scrollHeight + "px"; // 根据内容的高度调整textarea的高度
+        }
+    </script>
+</body>
+</html>

@@ -68,4 +68,5 @@ def main():
 
 
 if __name__ == '__main__':
+    # debug设置为True，修改代码后，服务器会自动重启
     app.run(debug=True)

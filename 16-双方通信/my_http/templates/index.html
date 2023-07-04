@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>在线剪贴板</title>
+    <script>
+        function refreshPage() {
+            window.open('/', '_self');
+        }
+        function clearMessage() {
+            document.getElementById('message_list').innerHTML = '';
+            document.getElementById("clear").value = "1";
+        }
+        function copyContent() {
+            var content = document.getElementById("message_list")
+            // var content = document.getElementById("message_list").innerHTML
+            // var tempInput = document.createElement("input"); // 创建一个临时的input元素
+            // tempInput.value = content; // 将要复制的内容赋值给临时input元素的value属性
+            // document.body.appendChild(tempInput); // 将临时input元素添加到页面中
+            content.select(); // 选中临时input元素的内容
+            document.execCommand("copy"); // 执行复制操作
+            // document.body.removeChild(tempInput); // 移除临时input元素
+        }
+
+        function autoResize() {
+            const textarea = document.getElementById("message");
+            textarea.style.height = "auto"; // 先将高度设置为auto，以便获取内容的完整高度
+            if (textarea.scrollHeight < 80) {
+                textarea.style.height = "80px";
+            } else {
+                textarea.style.height = textarea.scrollHeight + "px"; // 根据内容的高度调整textarea的高度
+            }
+        }
+
+        function autoResizeResult() {
+            const textarea = document.getElementById("message_list");
+            textarea.style.height = "auto"; // 先将高度设置为auto，以便获取内容的完整高度
+            textarea.style.height = textarea.scrollHeight + "px"; // 根据内容的高度调整textarea的高度
+        }
+
+    </script>
+
+    <style>
+        textarea {
+            border-color: black;
+            /* 设置边框颜色 */
+            border-width: 2px;
+            /* 设置边框宽度 */
+            resize: none;
+            /* 禁止用户调整textarea的大小 */
+            overflow: hidden;
+            /* 隐藏溢出的内容 */
+            height: 80px;
+        }
+
+        pre {
+            margin: 0;
+        }
+
+        #message {
+            margin-bottom: 14px;
+        }
+
+        #message_list {
+            height: {{height}}px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>在线剪贴板</h1>
+    <form method="POST">
+        <label for="message">输入内容：</label>
+        <br>
+        <textarea id="message" name="message" cols="80" oninput="autoResize()"></textarea><br>
+        <input type="submit" value="发送">
+        <input type="button" value="刷新" onclick="refreshPage()">
+        <br><br>
+        <label>剪贴板：</label>
+        <pre><textarea id="message_list" cols="80" oninput="autoResizeResult()">{{messages}}</textarea>
+        </pre>
+        <input type="button" value="一键复制" onclick="copyContent()">
+        <input type="button" value="历史记录" onclick="window.open('/text', '_blank');">
+        <input type="button" value="清空历史" onclick="clearMessage();this.form.submit();">
+        <input type="hidden" id="clear" name="clear" value="0">
+    </form>
+
+</body>
+
+</html>
