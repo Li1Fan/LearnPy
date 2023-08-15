@@ -41,9 +41,9 @@ def get_current_time():
 
 
 def calculate_height(content):
-    height = content.count('\n') * 16 + 20
-    if height < 80:
-        height = 80
+    height = content.count('\n') * 16 + 30
+    if height < 160:
+        height = 160
     return height
 
 
