@@ -1,0 +1,32 @@
+[32m2023-09-07 22:52:13.247[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m5[0m - [1mstart[0m
+[32m2023-09-07 22:52:13.249[0m | [1mINFO    [0m | [36mutil.util_file[0m:[36mutil_fun[0m:[36m5[0m - [1mthis is util function[0m
+[32m2023-09-07 22:53:10.253[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m5[0m - [1mstart[0m
+[32m2023-09-07 22:53:10.254[0m | [1mINFO    [0m | [36mutil.util_file[0m:[36mutil_fun[0m:[36m5[0m - [1mthis is util function[0m
+[32m2023-09-07 22:56:12.770[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m13[0m - [1mstart[0m
+[32m2023-09-07 22:56:12.771[0m | [1mINFO    [0m | [36m__main__[0m:[36mmy_function[0m:[36m7[0m - [1m这是一个信息级别的日志[0m
+[32m2023-09-07 22:56:12.772[0m | [33m[1mWARNING [0m | [36m__main__[0m:[36mmy_function[0m:[36m8[0m - [33m[1m这是一个警告级别的日志[0m
+[32m2023-09-07 22:56:12.773[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmy_function[0m:[36m9[0m - [31m[1m这是一个错误级别的日志[0m
+[32m2023-09-07 22:56:12.773[0m | [1mINFO    [0m | [36mutil.util_file[0m:[36mutil_fun[0m:[36m5[0m - [1mthis is util function[0m
+[32m2023-09-07 23:06:51.230[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m23[0m - [1mstart[0m
+[32m2023-09-07 23:06:51.231[0m | [1mINFO    [0m | [36m__main__[0m:[36mmy_function[0m:[36m9[0m - [1m这是一个信息级别的日志[0m
+[32m2023-09-07 23:06:51.232[0m | [33m[1mWARNING [0m | [36m__main__[0m:[36mmy_function[0m:[36m10[0m - [33m[1m这是一个警告级别的日志[0m
+[32m2023-09-07 23:06:51.232[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmy_function[0m:[36m11[0m - [31m[1m这是一个错误级别的日志[0m
+[32m2023-09-07 23:06:51.232[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36merror_function[0m:[36m18[0m - [31m[1mdivision by zero[0m
+[32m2023-09-07 23:06:51.233[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36merror_function[0m:[36m19[0m - [31m[1mTraceback (most recent call last):
+  File "D:\PycharmProjects\LearnPy\17-日志\main.py", line 16, in error_function
+    result = 1 / 0
+ZeroDivisionError: division by zero
+[0m
+[32m2023-09-07 23:06:51.233[0m | [1mINFO    [0m | [36mutil.util_file[0m:[36mutil_fun[0m:[36m5[0m - [1mthis is util function[0m
+[32m2023-09-07 23:08:59.258[0m | [1mINFO    [0m | [36m__main__[0m:[36m<module>[0m:[36m24[0m - [1mstart[0m
+[32m2023-09-07 23:08:59.259[0m | [1mINFO    [0m | [36m__main__[0m:[36mmy_function[0m:[36m10[0m - [1m这是一个信息级别的日志[0m
+[32m2023-09-07 23:08:59.260[0m | [33m[1mWARNING [0m | [36m__main__[0m:[36mmy_function[0m:[36m11[0m - [33m[1m这是一个警告级别的日志[0m
+[32m2023-09-07 23:08:59.260[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmy_function[0m:[36m12[0m - [31m[1m这是一个错误级别的日志[0m
+[32m2023-09-07 23:08:59.260[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36merror_function[0m:[36m19[0m - [31m[1mdivision by zero[0m
+[32m2023-09-07 23:08:59.261[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36merror_function[0m:[36m20[0m - [31m[1mTraceback (most recent call last):
+  File "D:\PycharmProjects\LearnPy\17-日志\main.py", line 17, in error_function
+    result = 1 / 0
+ZeroDivisionError: division by zero
+[0m
+[32m2023-09-07 23:08:59.262[0m | [1mINFO    [0m | [36mtest[0m:[36mtest_fun[0m:[36m5[0m - [1mthis is test function[0m
+[32m2023-09-07 23:08:59.262[0m | [1mINFO    [0m | [36mutil.util_file[0m:[36mutil_fun[0m:[36m5[0m - [1mthis is util function[0m

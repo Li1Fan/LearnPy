@@ -1,0 +1,32 @@
+2023-09-07 22:52:13.247 | INFO     | __main__:<module>:5 - start
+2023-09-07 22:52:13.249 | INFO     | util.util_file:util_fun:5 - this is util function
+2023-09-07 22:53:10.253 | INFO     | __main__:<module>:5 - start
+2023-09-07 22:53:10.254 | INFO     | util.util_file:util_fun:5 - this is util function
+2023-09-07 22:56:12.770 | INFO     | __main__:<module>:13 - start
+2023-09-07 22:56:12.771 | INFO     | __main__:my_function:7 - 这是一个信息级别的日志
+2023-09-07 22:56:12.772 | WARNING  | __main__:my_function:8 - 这是一个警告级别的日志
+2023-09-07 22:56:12.773 | ERROR    | __main__:my_function:9 - 这是一个错误级别的日志
+2023-09-07 22:56:12.773 | INFO     | util.util_file:util_fun:5 - this is util function
+2023-09-07 23:06:51.230 | INFO     | __main__:<module>:23 - start
+2023-09-07 23:06:51.231 | INFO     | __main__:my_function:9 - 这是一个信息级别的日志
+2023-09-07 23:06:51.232 | WARNING  | __main__:my_function:10 - 这是一个警告级别的日志
+2023-09-07 23:06:51.232 | ERROR    | __main__:my_function:11 - 这是一个错误级别的日志
+2023-09-07 23:06:51.232 | ERROR    | __main__:error_function:18 - division by zero
+2023-09-07 23:06:51.233 | ERROR    | __main__:error_function:19 - Traceback (most recent call last):
+  File "D:\PycharmProjects\LearnPy\17-日志\main.py", line 16, in error_function
+    result = 1 / 0
+ZeroDivisionError: division by zero
+
+2023-09-07 23:06:51.233 | INFO     | util.util_file:util_fun:5 - this is util function
+2023-09-07 23:08:59.258 | INFO     | __main__:<module>:24 - start
+2023-09-07 23:08:59.259 | INFO     | __main__:my_function:10 - 这是一个信息级别的日志
+2023-09-07 23:08:59.260 | WARNING  | __main__:my_function:11 - 这是一个警告级别的日志
+2023-09-07 23:08:59.260 | ERROR    | __main__:my_function:12 - 这是一个错误级别的日志
+2023-09-07 23:08:59.260 | ERROR    | __main__:error_function:19 - division by zero
+2023-09-07 23:08:59.261 | ERROR    | __main__:error_function:20 - Traceback (most recent call last):
+  File "D:\PycharmProjects\LearnPy\17-日志\main.py", line 17, in error_function
+    result = 1 / 0
+ZeroDivisionError: division by zero
+
+2023-09-07 23:08:59.262 | INFO     | test:test_fun:5 - this is test function
+2023-09-07 23:08:59.262 | INFO     | util.util_file:util_fun:5 - this is util function
