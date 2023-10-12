@@ -239,10 +239,10 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
 
-    ip = '192.168.222.132'
-    port = 6102
+    ip = '192.168.222.10'
+    port = 22
     user = 'root'
-    passwd = 'N2RmMjljY%+jNzM='
+    passwd = 'starnetsvc9000PBX'
     ssh = SSHConnection(ip=ip, port=port, user=user, passwd=passwd)
     if ssh.connect() is not True:
         print('ssh 连接失败')
