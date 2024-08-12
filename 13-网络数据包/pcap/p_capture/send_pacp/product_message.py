@@ -1,15 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.02.19
-Author xjq
-
-Copyright (c) 2020 Star-Net
-
-报文处理模块
-"""
-
 import struct
 import binascii
 import json

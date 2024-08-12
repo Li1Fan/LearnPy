@@ -1,15 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
 
-Created on 2023.04.12
-Author frz
-
-Copyright (c) 2023 Star-Net
-
-WebSocket 服务端
-自带保活机制，客户端每隔 10 秒发送一次心跳包，如果 30 秒内没有收到心跳包，则断开连接
-"""
 import threading
 
 from SDUM.src.util.msg_handle import MegHandle

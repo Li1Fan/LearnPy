@@ -1,11 +1,3 @@
-"""
-__version__ = '1.0'
-
-Created on 2023.03.16
-Author frz
-栈
-Copyright (c) 2021 Star-Net
-"""
 
 
 class Stack:

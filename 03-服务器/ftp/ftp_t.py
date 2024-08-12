@@ -1,12 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
 
-Created on 2022.10.20
-Author frz
-
-Copyright (c) 2022 Star-Net
-"""
 import os
 from ftplib import FTP
 

@@ -1,14 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.03.11
-Author wry
-
-Copyright (c) 2020 Star-Net
-
-弹窗功能模块
-"""
 import qtawesome as qta
 from PyQt5.QtWidgets import QWidget, QMessageBox
 

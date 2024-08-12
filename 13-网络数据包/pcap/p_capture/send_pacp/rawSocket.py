@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2022.8.18
-Author frz
-
-Copyright (c) 2022 Star-Net
-"""
 import queue
 from src.log.Log import log
 

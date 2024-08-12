@@ -7,8 +7,8 @@ import base64
 获取 Access Token
 """
 
-API_KEY = 'saGr3AYcZ06LWa8E0GORrlj7'
-SECRET_KEY = 'sbm6Xoa3P8KxQumOYZvNFacKaOBhKTMR'
+API_KEY = ''
+SECRET_KEY = ''
 
 
 def get_baiduApi_token():
@@ -23,9 +23,9 @@ def get_baiduApi_token():
 
 
 def baiduApi_ocr(path):
-    '''
+    """
     通用文字识别（高精度版）
-    '''
+    """
     request_url = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic"
     # request_url = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"
     # 二进制方式打开图片文件

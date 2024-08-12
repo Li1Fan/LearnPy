@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.06.11
-Author cmr
-
-Copyright (c) 2020 Star-Net
-"""
 from PyQt5.QtCore import QTimer, Qt, pyqtSignal
 from PyQt5.QtGui import QTextCursor, QFont
 from PyQt5.QtWidgets import QWidget, QPlainTextEdit, QPushButton, QHBoxLayout, QVBoxLayout, QLineEdit, QFileDialog

@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2022.03.07
-Author gc
-Copyright (c) 2020 Star-Net
-"""
 import random
 
 import paramiko

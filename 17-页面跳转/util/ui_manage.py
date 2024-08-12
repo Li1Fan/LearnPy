@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2023.03.06
-Author wry
-
-Copyright (c) 2021 Star-Net
-"""
-
 
 class UiManager(object):
     widget_dict = dict()

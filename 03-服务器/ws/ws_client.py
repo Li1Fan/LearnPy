@@ -1,14 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
 
-Created on 2023.04.12
-Author frz
-
-Copyright (c) 2023 Star-Net
-
-WebSocket 客户端
-"""
 import json
 import threading
 import time
