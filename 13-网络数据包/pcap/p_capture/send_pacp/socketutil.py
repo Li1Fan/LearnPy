@@ -1,15 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.02.19
-Author wry
-
-Copyright (c) 2020 Star-Net
-
-通信依赖功能模块
-"""
-
 import json
 import hashlib
 

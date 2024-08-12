@@ -167,5 +167,5 @@ class Qt_pet(QtWidgets.QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    pet = Qt_pet(dir=r'G:\打包测试\MyFunPro\pet_conf')
+    pet = Qt_pet('pet_conf')
     sys.exit(app.exec_())

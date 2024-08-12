@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2021.5.20
-Author gc
-
-Copyright (c) 2021 Star-Net
-"""
 
 from ctypes import *
 from ctypes.util import find_library

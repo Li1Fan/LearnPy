@@ -1,7 +1,7 @@
 import json
 import time
 
-from browser_control.login.hr_login2 import get_cookie
+from hr_login2 import get_cookie
 
 
 def getHTMLText(url):

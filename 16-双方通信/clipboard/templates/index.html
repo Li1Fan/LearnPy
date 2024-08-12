@@ -84,7 +84,14 @@
             line-height: 1.0;
             border-radius: 5px;
             width: 100%;
-            height: {{height}}px;
+
+            height: {
+                    {
+                    height
+                }
+            }
+
+            px;
             box-sizing: border-box;
         }
 
@@ -99,7 +106,10 @@
 </head>
 
 <body>
-    <h1>在线剪切板</h1>
+    <div style="text-align: center;">
+        <h1>共享剪贴板</h1>
+        <a href="http://192.168.222.108:9999" target="_blank">文件共享站</a>
+    </div>
     <form method="POST">
         <label for="message">输入内容：</label>
         <textarea id="message" name="message" oninput="autoResize()"></textarea>

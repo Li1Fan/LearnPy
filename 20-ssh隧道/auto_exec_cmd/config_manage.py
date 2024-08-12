@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2023.09.14
-Author frz
-"""
 import configparser
 
 

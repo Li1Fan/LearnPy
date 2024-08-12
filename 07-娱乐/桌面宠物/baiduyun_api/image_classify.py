@@ -8,8 +8,8 @@ import time
 """
 获取 Access Token
 """
-API_KEY = 'xBPmKUlzLiRubiTRB2DAGYiC'
-SECRET_KEY = 'OpMgnerdhcIq4K6DGTpYjtuyLD6giWbX'
+API_KEY = ''
+SECRET_KEY = ''
 
 
 def get_baiduApi_token():

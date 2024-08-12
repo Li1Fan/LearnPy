@@ -48,4 +48,5 @@ def calculate_height(content):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=12345, debug=True)
+    print("192.168.222.108:80")
+    app.run(host='0.0.0.0', port=8888, debug=True)

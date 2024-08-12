@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.07.10
-Author cmr
-
-Copyright (c) 2020 Star-Net
-"""
 import os
 import subprocess
 import time

@@ -11,8 +11,8 @@ import json
 from hashlib import md5
 
 # Set your own appid/appkey.
-appid = '20221011001384257'
-appkey = 'fms4_c3QdubYQ9K8RVN4'
+appid = ''
+appkey = ''
 
 # For list of language codes, please refer to `https://api.fanyi.baidu.com/doc/21`
 from_lang = 'zh'

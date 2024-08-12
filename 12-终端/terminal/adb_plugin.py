@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.09.03
-Author lz
-
-Copyright (c) 2020 Star-Net
-"""
 # from pythrone.log import log
 # from pythrone.plugin import PluginArgs
 import subprocess

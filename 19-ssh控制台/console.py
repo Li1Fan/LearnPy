@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-__version__ = '1.0'
-
-Created on 2020.06.12
-Author cmr
-
-Copyright (c) 2020 Star-Net
-"""
 from loguru import logger as log
 
 
